@@ -5,7 +5,7 @@ This repository hosts the files used in a project comparing AI tools used for ac
   The instructions assume that you are familiar with installing software packages and working in a command-line environment.
 - test_bert.py: Python script for running a BERT smoke test
 - compare_pdfs.py: Python script analyzing semantic similarity for two PDFs
-- compare_csvs.py: Python script analyzing semantic similarity for two CSVs
+- compare_jsons.py: Python script analyzing semantic similarity for two JSONs
 
 ## Project Overview
 
@@ -136,9 +136,9 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 
 ## Part 2: Perform Semantic Similarity Analysis
 
-Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the 2 sources:
- - compare_pdfs.py
- - compare_csvs.py
+Once you have BERT set up and running, you can use BERT for inference tasks.Two sample Python scripts are provided:
+ - compare_pdfs.py: This Python script extracts text from two PDF files, chunks it, generates embeddings, builds a document‑level embedding for each document, and computes similarity between the 2 files.
+ - compare_jsons.py: This sample Python script extracts and processes text from two JSON files, generates embeddings for each entry, and computes an unordered set-level semantic similarity between the two files.
 
 These scripts do not use the `bert-base-uncased` model in the Transformers library, as BERT models are not specifically trained for semantic similarity. Instead, the scripts use a SBERT model: `all-mpnet-base-v2` in the SentenceTransformers library. 
 
@@ -155,8 +155,8 @@ To install the library, in your activated virtual environment, run `pip install 
 ### Run the Semantic Similarity Analysis Script
 
 To perform semantic similarity analysis on two text sources: 
-1. Prepare two text files for analysis.
-2. In your activated virtual environment, run one of the provided Python scripts: `python <script_name> <text1_name> <text2_name>` E.g. `python compare_pdfs.py pdf1 pdf2`
+1. Prepare two PDFs or JSONs for analysis.
+2. In your activated virtual environment, run one of the provided Python scripts: `python <script_name> <text1_name> <text2_name>`. E.g. `python compare_pdfs.py pdf1 pdf2`
    A Semantic Similarity score is produced.
 
 ## Disclosure of AI Use
