@@ -26,7 +26,7 @@ Recommended hardware requirements:
 - 256 GB storage
 
 >[!NOTE]
-The requirements were taken from https://www.geeksforgeeks.org/python/pytorch-system-requirements. Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
+The requirements were taken from [https://www.geeksforgeeks.org/python/pytorch-system-requirements](https://www.geeksforgeeks.org/python/pytorch-system-requirements). Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
 
 Software requirements:
 - For a list of supported operating systems, see the Pytorch website (https://pytorch.org/get-started/locally/) and select your OS (Linux, Mac, Windows) listed on the interactive chart.
