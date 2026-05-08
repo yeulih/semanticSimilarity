@@ -26,7 +26,7 @@ Recommended hardware requirements:
 - 256 GB storage
 
 >[!NOTE]
-The requirements were taken from [https://www.geeksforgeeks.org/python/pytorch-system-requirements](https://www.geeksforgeeks.org/python/pytorch-system-requirements). Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
+The requirements were taken from (https://www.geeksforgeeks.org/python/pytorch-system-requirements). Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
 
 Software requirements:
 - For a list of supported operating systems, see the Pytorch website (https://pytorch.org/get-started/locally/) and select your OS (Linux, Mac, Windows) listed on the interactive chart.
@@ -63,10 +63,10 @@ The package manager pip is used to install the PyTorch binaries. The command to 
 - GPU model (if applicable).
 
 Use one of the following methods to find the correct command:
-- If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on https://pytorch.org/get-started/locally/ and the command will be generated for you.
-- If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at https://pytorch.org/get-started/previous-versions/.
+- If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on (https://pytorch.org/get-started/locally/) and the command will be generated for you.
+- If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at (https://pytorch.org/get-started/previous-versions/).
 
-This is a sample command: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
+The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
 
 >[!IMPORTANT]
 Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
