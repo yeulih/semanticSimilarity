@@ -136,7 +136,7 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 
 ## Part 2: Perform Semantic Similarity Analysis
 
-Once you have BERT set up and running, you can use BERT for inference tasks.Two sample Python scripts are provided:
+Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided:
  - `compare_pdfs.py`: This Python script extracts text from two PDF files, chunks it, generates embeddings, builds a document‑level embedding for each document, and computes similarity between the 2 files.
  - `compare_jsons.py`: This sample Python script extracts and processes text from two JSON files, generates embeddings for each entry, and computes an unordered set-level semantic similarity between the two files.
 
