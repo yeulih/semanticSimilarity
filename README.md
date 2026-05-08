@@ -77,7 +77,7 @@ Use one of the following methods to find the correct command:
 The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
 
 > [!TIP]
-> You can check your Nvidia driver version and CUDA version by running `nvida-smi` in a command-line.
+> You can check your Nvidia driver version and CUDA version by running `nvidia-smi` in a command-line.
 
 >[!IMPORTANT]
 >Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to use only the CPU to compute and skip installing the CUDA wheel.
