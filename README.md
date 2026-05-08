@@ -8,13 +8,13 @@ This repository hosts the files used in a project comparing AI tools used for ac
 
 Project Overview
 
-BERT (Bidirectional Encoder Representations from Transformers) is a type of LLM. BERT excels at National Language Processing (NLP) tasks such as sentiment analysis, question answering, semantic similarity.
+BERT (Bidirectional Encoder Representations from Transformers) is a type of Large Language Model (LLM). BERT excels at National Language Processing (NLP) tasks such as sentiment analysis, question answering, semantic similarity.
 
 ## System Requirements
-Pytorch is an open source deep learning library. One of its capabilities is allowing Large Language Models (LLMs), including BERT, to be run on a local computer. Check the specified hardware and software requirements to see if you can run PyTorch on your local computer.
+Pytorch is an open source deep learning library. One of its capabilities is enabling LLMs, such as BERT, to be run on a local computer. Check the specified hardware and software requirements to see if you can run PyTorch on your local computer.
 
 Recommended Hardware requirements:
-*Note*: Although the PyTorch website does not list specific hardware requirements, the requirements posted at https://www.geeksforgeeks.org/python/pytorch-system-requirements seemed reasonable.
+**Note**: Although the PyTorch website does not list specific hardware requirements, the requirements posted at https://www.geeksforgeeks.org/python/pytorch-system-requirements seem reasonable:
 <ul>
 <li>Computer with Nvidia GPU that supports CUDA or AMD GPU</li>
 <li>Intel Core i5 and higher or AMD Ryzen 7 and higher</li>
@@ -28,20 +28,20 @@ For a list of supported operating systems, see the Pytorch website (https://pyto
 Set up and run BERT
 
 To set up and run BERT, perform the following tasks in order:
-
-
-Install Python
-Install Python 3.9–3.12 from the official site (check “Add python.exe to PATH” during install)
-
-https://www.python.org/downloads/windows/
-
-Note: pip, package manager for Python, is alo automatically installed.
-
-
-Set up a Python virtual environment
-
 <ol>
-<li>Create a project folder</li>
+  <li> Install Python</li>
+  <li> Set up a Python virtual environment</li>
+</ol>
+
+### Install Python
+Install Python from the official site (https://www.python.org/downloads/). Select the **Add python.exe to PATH** option on the install screen. Although Pytorch supports Python versions 3.10-3.14, it is recommended to install 3.10, as dependency issues in libraries can occur with later versions. 
+
+**Note**: pip, a package manager for Python, is automatically installed when using the official Python installer.
+
+### Set up a Python virtual environment
+To set up a Python virtual environment:
+<ol>
+<li>Create a project folder, e.g. C:\projects\bert-local </li>
 <li>In that folder, run:
 
 python -m venv .venv</li>
