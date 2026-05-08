@@ -39,7 +39,7 @@ To set up and run BERT, perform the following tasks in order:
 2. [Set up a Python virtual environment](#set-up-a-python-virtual-environment).
 3. [Install Pytorch](#install-pytorch).
 4. [Install Hugging Face Transformers](#install-hugging-face-transformers).
-5. [Run a BERT smoke test](#run-a-bert-smoke-test).
+5. [Run a BERT smoke test (optional)](#run-a-bert-smoke-test-optional).
 7. [Save BERT locally for offline use (optional)](#save-bert-locally-for-offline-use-optional).
 
 ### Install Python
@@ -88,7 +88,7 @@ The Hugging Space Transformers library provides pre-trained LLMs that you can lo
 
 To install the library, in your activated virtual environment, run `pip install transformers`.
 
-### Run a BERT smoke test
+### Run a BERT smoke test (optional)
 
 To run a BERT smoke test:
 1. Create a file named `test_bert.py` containing the following code in your project folder:
