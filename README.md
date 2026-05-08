@@ -4,7 +4,8 @@ This repository hosts the files used in a project comparing AI tools used for ac
 - README.md: Instructions for setting up and running BERT
   The instructions assume that you are familiar with installing software packages and working in a command-line environment.
 - test_bert.py: Python script for running a BERT smoke test
-- compare_pdfs.py: Python script comparing
+- compare_pdfs.py: Python script analyzing semantic similarity for two PDFs
+- compare_
 
 ## Project Overview
 
@@ -132,7 +133,9 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 
 ## Part 2: Perform Semantic Similarity Analysis
 
-Once you have BERT set up and running, you can use BERT for inference tasks. Sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the two sources.
+Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the two sources:
+ - compare_pdfs.py
+ - compare_csvs.py
 
 To perform semantic similarity analysis on two text sources: 
 1. Prepare two text files for analysis.
