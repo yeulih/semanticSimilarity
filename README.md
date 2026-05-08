@@ -105,7 +105,10 @@ print("BERT ran successfully on:", outputs.last_hidden_state.device)
 
 ### Save BERT locally for offline use
 To save BERT locally for offline use:
-1. In your activated virtual environment, run 
+1. After loading the model and tokenizer once, in your activated virtual environment, run `python` to invoke the Python interpretor as an interactive shell. This enables you to Python code line-by-line and see the results immediately.
+   >{!TIP]
+   Exit the interactive shell at any time by running `exit`.
+2. Run the following commands
 ```
 save_dir = "./models/bert-base-uncased"
 model.save_pretrained(save_dir)
@@ -117,13 +120,6 @@ model_path = "./models/bert-base-uncased"
 tokenizer = BertTokenizer.from_pretrained(model_path, local_files_only=True)
 model = BertModel.from_pretrained(model_path, local_files_only=True)
 ```
-
-In Python, after loading the model and tokenizer once, run:
-
-python
-save_dir = "./models/bert-base-uncased"
-model.save_pretrained(save_dir)
-tokenizer.save_pretrained(save_dir)
 
 ## Part 2: Perform Semantic Similarity Analysis
 
