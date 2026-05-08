@@ -13,17 +13,21 @@ def remove_fields_case_insensitive(obj):
             for k, v in obj.items()
             if k.lower() not in REMOVE_FIELDS
         }
+
     if isinstance(obj, list):
         return [remove_fields_case_insensitive(x) for x in obj]
+
     return obj
 
 
 def flatten_to_text(obj):
     if isinstance(obj, dict):
         parts = []
+
         for key, value in obj.items():
             if value is not None:
                 parts.append(f"{key}: {flatten_to_text(value)}")
+
         return " ".join(parts)
 
     if isinstance(obj, list):
@@ -40,32 +44,22 @@ def load_json(path):
 def normalize_records(data):
     if isinstance(data, list):
         return data
+
     return [data]
-
-
-def get_title(record, index):
-    if isinstance(record, dict):
-        return record.get("title") or record.get("Title") or f"Record {index + 1}"
-    return f"Record {index + 1}"
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Compare two JSON files for unordered semantic similarity."
+        description="Compute unordered semantic similarity between two JSON sets."
     )
 
-    parser.add_argument("file1", help="First JSON file")
-    parser.add_argument("file2", help="Second JSON file")
+    parser.add_argument("file1")
+    parser.add_argument("file2")
+
     parser.add_argument(
         "--model",
         default="sentence-transformers/all-mpnet-base-v2",
-        help="SentenceTransformer model name or local model path",
-    )
-    parser.add_argument(
-        "--top",
-        type=int,
-        default=10,
-        help="Number of best matches to print",
+        help="SentenceTransformer model name or local path",
     )
 
     args = parser.parse_args()
@@ -78,8 +72,8 @@ def main():
     records1 = normalize_records(data1)
     records2 = normalize_records(data2)
 
-    texts1 = [flatten_to_text(record) for record in records1]
-    texts2 = [flatten_to_text(record) for record in records2]
+    texts1 = [flatten_to_text(r) for r in records1]
+    texts2 = [flatten_to_text(r) for r in records2]
 
     embeddings1 = model.encode(
         texts1,
@@ -95,33 +89,21 @@ def main():
 
     similarity_matrix = util.cos_sim(embeddings1, embeddings2)
 
-    best_1_to_2 = similarity_matrix.max(dim=1).values
-    best_2_to_1 = similarity_matrix.max(dim=0).values
+    # Best match from A -> B
+    best_a_to_b = similarity_matrix.max(dim=1).values
 
-    overall_score = ((best_1_to_2.mean() + best_2_to_1.mean()) / 2).item()
+    # Best match from B -> A
+    best_b_to_a = similarity_matrix.max(dim=0).values
 
-    print(f"\nOverall unordered semantic similarity: {overall_score:.4f}")
+    # Symmetric unordered set similarity
+    overall_similarity = (
+        best_a_to_b.mean() + best_b_to_a.mean()
+    ) / 2
 
-    print(f"\nTop {args.top} best matches from file 1 to file 2:")
-
-    match_rows = []
-
-    for i in range(len(records1)):
-        best_j = similarity_matrix[i].argmax().item()
-        score = similarity_matrix[i][best_j].item()
-
-        match_rows.append((score, i, best_j))
-
-    match_rows.sort(reverse=True, key=lambda x: x[0])
-
-    for score, i, j in match_rows[: args.top]:
-        title1 = get_title(records1[i], i)
-        title2 = get_title(records2[j], j)
-
-        print("\n---")
-        print(f"File 1 item: {title1}")
-        print(f"Best file 2 match: {title2}")
-        print(f"Similarity between JSONs: {score:.4f}")
+    print(
+        f"\nSemantic similarity between JSONs: "
+        f"{overall_similarity.item():.4f}"
+    )
 
 
 if __name__ == "__main__":
