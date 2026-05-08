@@ -103,17 +103,26 @@ print("BERT ran successfully on:", outputs.last_hidden_state.device)
 2. In your activated virtual environment, run `python test_bert.py`.
    If BERT is successfully run, the returned output is "BERT ran successfully on: cuda:0".
 
-### Save BERT locally for offline use
+### Save BERT locally for offline use (optional)
+Hugging Face Transformers automatically caches model weights, configurations, and tokenizer data, so you can skip this task.
+
 To save BERT locally for offline use:
 1. After loading the model and tokenizer once, in your activated virtual environment, run `python` to invoke the Python interpretor as an interactive shell. This enables you to Python code line-by-line and see the results immediately.
    >{!TIP]
    Exit the interactive shell at any time by running `exit`.
-2. Run the following commands
+2. Run the following commands:
+```
+save_dir = "./<model_directory>"
+model.save_pretrained(save_dir)
+tokenizer.save_pretrained(save_dir)
+```
+For example, the following commands save the model and tokenizer to a subdirectory of the current folder named `models/bert-case-uncased`.
 ```
 save_dir = "./models/bert-base-uncased"
 model.save_pretrained(save_dir)
 tokenizer.save_pretrained(save_dir)
 ```
+3. Later, you can load the model directly from the folder running the following commands ()
 ```
 from transformers import BertTokenizer, BertModel
 model_path = "./models/bert-base-uncased"
