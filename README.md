@@ -30,26 +30,33 @@ To set up and run BERT, perform the following tasks in order:
 3. 
 
 ### Install Python
-Install Python from the official site (https://www.python.org/downloads/). Select the **Add python.exe to PATH** option on the install screen. Although Pytorch supports Python versions 3.10-3.14, it is recommended to install 3.10, as dependency issues in libraries can occur with later versions. 
 
-**Note**: pip, a package manager for Python, is automatically installed when using the official Python installer.
+Install Python from the official site (https://www.python.org/downloads/). Make sure to select the **Add python.exe to PATH** option on the install screen. pip, a package manager for Python, is automatically installed when using the official Python installer.
+
+**Important!** Although Pytorch supports Python versions 3.10-3.14, it is recommended to install 3.10, as dependency issues in libraries can occur with later versions. 
 
 ### Set up a Python virtual environment
+
 To set up a Python virtual environment:
-1. Create a project folder, e.g. `C:\projects\bert-local`
-2. , run:
-
-python -m venv .venv</li>
-<li>Activate the environment:</li>
+1. In a command-line, create a project folder. E.g. `C:\projects\bert-local`
+2. In the folder, run `python -m venv *<env_name>*` to create a virtual environment. E.g. `python -m venv .venv`
+3. In the same folder, run .\*<env_name>*\Scripts\activate.bat to activate the environment. E.g. `.\.venv\Scripts\activate.bat`
   
-</ol>
+### Install Pytorch
 
+To install the PyTorch binaries, you will need to use the supported package manager: pip.
 
-Install Pytorch
+The command to install Pytorch in the virtual environment differs based on the following factors:
+- OS
+- computing using a GPU or CPU
+- GPU model (if applicable). Some Nvidia nideks blah blah blah
+
+This project ran on a computer that has the Nivdieo Quadro T2000.
+
 
 This project uses Pytorch version 2.11.0
 
-To install the PyTorch binaries, you will need to use the supported package manager: pip.
+
 
 To install PyTorch via pip, and do have a CUDA-capable system, in the above selector, choose OS: Windows, Package: Pip and the CUDA version suited to your machine. Often, the latest CUDA version is better. Then, run the command that is presented to you.
 
