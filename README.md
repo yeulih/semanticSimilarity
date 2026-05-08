@@ -38,7 +38,7 @@ To set up and run BERT, perform the following tasks in order:
 1. [Install Python](#install-python).
 2. [Set up a Python virtual environment](#set-up-a-python-virtual-environment).
 3. [Install Pytorch](#install-pytorch).
-4. [Install Hugging Face Transformers and dependencies](#install-hugging-face-transformers-and-dependencies).
+4. [Install Hugging Face Transformers](#install-hugging-face-transformers).
 5. [Run a BERT smoke test](#run-a-bert-smoke-test).
 7. [Save BERT locally for offline use (optional)](#save-bert-locally-for-offline-use-optional).
 
@@ -79,7 +79,7 @@ Python version: 3.11.9
 Pytorch version: 2.7.1
 CUDA wheel: 11.8
 
-### Install Hugging Face Transformers and dependencies
+### Install Hugging Face Transformers
 
 The Hugging Space Transformers library provides pre-trained LLMs that you can load in Pytorch. 
 
@@ -133,11 +133,23 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 
 ## Part 2: Perform Semantic Similarity Analysis
 
-Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the two sources:
+Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the 2 sources:
  - compare_pdfs.py
  - compare_csvs.py
 
-These scripts does not use the `bert-base-uncased` model in the Transformers library; instead, they use the `all-mpnet-base-v2` model in the SentenceTransformers library.
+These scripts does not use the `bert-base-uncased` model in the Transformers library; BERT models are not specifically trained for semantic similarity. Instead, the scripts use SBERT, in this case the `all-mpnet-base-v2` model in the SentenceTransformers library. 
+
+To set up and run SBERT, perform the following tasks in order:
+1. [Install Hugging Face Sentence Transformers](#insall-hugging-face-sentence-transformers).
+2. [Run the Semantic Similarity Analysis Script](#run-the-semantic-similarity-analysis-script).
+
+### Install Hugging Face Sentence Transformers
+
+The Hugging Space Sentence Transformers library provides pre-trained SBERT models that you can load in Pytorch. 
+
+To install the library, in your activated virtual environment, run `pip install sentence-transformers`.
+
+### Run the Semantic Similarity Analysis Script
 
 To perform semantic similarity analysis on two text sources: 
 1. Prepare two text files for analysis.
