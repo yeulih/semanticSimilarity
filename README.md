@@ -27,7 +27,7 @@ Recommended hardware requirements:
 - 256 GB storage
 
 >[!NOTE]
-The requirements were taken from (https://www.geeksforgeeks.org/python/pytorch-system-requirements). Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
+>The requirements were taken from (https://www.geeksforgeeks.org/python/pytorch-system-requirements). Although the PyTorch website does not list specific hardware requirements, running LLMs requires a nontrivial amount of computing power.
 
 Software requirements:
 - For a list of supported operating systems, see the Pytorch website (https://pytorch.org/get-started/locally/) and select your OS (Linux, Mac, Windows) listed on the interactive chart.
@@ -47,7 +47,7 @@ To set up and run BERT, perform the following tasks in order:
 Install Python from the official site (https://www.python.org/downloads/). Make sure to select the **Add python.exe to PATH** option on the install screen. pip, a package manager for Python, is automatically installed when using the official Python installer.
 
 >[!IMPORTANT] 
-Although Pytorch supports Python versions 3.10-3.14, it is recommended to install 3.10, as dependency issues in libraries can occur with later versions. 
+>Although Pytorch supports Python versions 3.10-3.14, it is recommended to install 3.10, as dependency issues in libraries can occur with later versions. 
 
 ### Set up a Python virtual environment
 
@@ -58,21 +58,23 @@ To set up a Python virtual environment:
   
 ### Install Pytorch
 
-The package manager pip is used to install the PyTorch binaries. The command to install Pytorch in the virtual environment changeds based on the following factors:
+The package manager pip is used to install the PyTorch binaries. The command to install Pytorch in the virtual environment changes based on the following factors:
 - OS
 - computing using a GPU or CPU
 - GPU model (if applicable).
 
 Use one of the following methods to find the correct command:
 - If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on (https://pytorch.org/get-started/locally/) and the command will be generated for you.
-  <[!TIP]
-  You can check your Nvidia driver version and CUDA version by runinng `nivida-smi` in a command-line.
+
+    > [!TIP]
+    > You can check your Nvidia driver version and CUDA version by running `nvida-smi` in a command-line.
+    
 - If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at (https://pytorch.org/get-started/previous-versions/).
 
 The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
 
 >[!IMPORTANT]
-Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
+>Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
 
 This project ran on a computer that has the Nivdiao Quadro T2000 GPU. After much trial and error, the final working configuration was:
 Python version: 3.11.9
@@ -109,7 +111,7 @@ Hugging Face Transformers automatically caches model weights, configurations, an
 
 To save BERT locally for offline use:
 1. After loading the model and tokenizer once, in your activated virtual environment, run `python` to invoke the Python interpretor as an interactive shell. This enables you to Python code line-by-line and see the results immediately.
-   >{!TIP]
+   >[!TIP]
    Exit the interactive shell at any time by running `exit`.
 2. Run the following commands:
 ```
