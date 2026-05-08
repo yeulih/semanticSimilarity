@@ -136,12 +136,13 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the two sources:
  - compare_pdfs.py
  - compare_csvs.py
-These scripts uses the following model in the SentenceTransformers library: all-mpnet-base-v2
+
+These scripts does not use the `bert-base-uncased` model in the Transformers library; instead, they use the `all-mpnet-base-v2` model in the SentenceTransformers library.
 
 To perform semantic similarity analysis on two text sources: 
 1. Prepare two text files for analysis.
 2. In your activated virtual environment, run one of the provided Python scripts: `python <script_name> <text1_name> <text2_name>` E.g. python compare_pdfs.py pdf1 pdf2
   A Semantic Similarity score is produced.
 
-## AI Use Disclosure
-AI was used to generate the initial instructions for setting up BERT as well as code samples and scripts.
+## Disclosure of AI Use
+AI was used to generate the initial instructions for setting up BERT as well as code samples and scripts. All other content, including the copy of the instructions as seen in the README file, was drafted and reviewed manually. 
