@@ -35,11 +35,11 @@ Software requirements:
 
 To set up and run BERT, perform the following tasks in order:
 1. [Install Python](#install-python).
-2. Set up a Python virtual environment.
-3. Install Pytorch.
-4. Install Hugging Face Transformers and dependencies.
+2. [Set up a Python virtual environment](#set-up-a-python-virtual-environment).
+3. [Install Pytorch](#install-pytorch).
+4. [Install Hugging Face Transformers and dependencies](#install-hugging-face-transformers-and-dependencies).
 5. [Run a BERT smoke test](#run-a-bert-smoke-test).
-6. Save BERT locally for offline use. ???
+6. [Save BERT locally for offline use](#save-bert-locally-for-offline-use).
 
 ### Install Python
 
@@ -64,7 +64,8 @@ The package manager pip is used to install the PyTorch binaries. The command to 
 
 Use one of the following methods to find the correct command:
 - If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on (https://pytorch.org/get-started/locally/) and the command will be generated for you.
-  <[!TIP} You can check your Nvidia driver version and CUDA version by runinng `nivida-smi` in a command-line.
+  <[!TIP]
+  You can check your Nvidia driver version and CUDA version by runinng `nivida-smi` in a command-line.
 - If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at (https://pytorch.org/get-started/previous-versions/).
 
 The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
