@@ -40,7 +40,7 @@ To set up and run BERT, perform the following tasks in order:
 3. [Install Pytorch](#install-pytorch).
 4. [Install Hugging Face Transformers and dependencies](#install-hugging-face-transformers-and-dependencies).
 5. [Run a BERT smoke test](#run-a-bert-smoke-test).
-6. [Save BERT locally for offline use](#save-bert-locally-for-offline-use).
+7. [Save BERT locally for offline use (optional)](#save-bert-locally-for-offline-use-optional).
 
 ### Install Python
 
@@ -136,6 +136,7 @@ model = BertModel.from_pretrained(model_path, local_files_only=True)
 Once you have BERT set up and running, you can use BERT for inference tasks. Two sample Python scripts are provided that extracts text from 2 sources, chunks it, generates embeddings, builds a document‑level embedding for each source text, and computes similarity between the two sources:
  - compare_pdfs.py
  - compare_csvs.py
+These scripts uses the following model in the SentenceTransformers library: all-mpnet-base-v2
 
 To perform semantic similarity analysis on two text sources: 
 1. Prepare two text files for analysis.
