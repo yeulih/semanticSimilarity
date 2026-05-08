@@ -156,8 +156,8 @@ To install the library, in your activated virtual environment, run `pip install 
 
 To perform semantic similarity analysis on two text sources: 
 1. Prepare two PDFs or JSONs for analysis.
-2. In your activated virtual environment, run one of the provided Python scripts: `python <script_name> <text1_name> <text2_name>`. E.g. `python compare_pdfs.py pdf1 pdf2`
+2. In your activated virtual environment, run one of the provided Python scripts: `python <script_name> <text1_name> <text2_name>`. E.g. `python compare_pdfs.py pdf1 pdf2`<br>
    A Semantic Similarity score is produced.
 
-## Disclosure of AI Use
+## AI Use Disclosure
 AI was used to assist with configuring the Pytorch environment, setting up BERT models, and generating code samples and scripts. All other content, including the instructions as seen in the README file, was drafted and reviewed manually. 
