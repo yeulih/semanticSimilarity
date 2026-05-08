@@ -2,7 +2,7 @@
 
 This repository hosts the files used in a project comparing AI tools used for academic research. Specifically, semantic similarity analysis was performed on search results from different citation-mapping literature tools. The contents of the files are as follows:
 - README.md: Instructions for setting up and running BERT
-  The instructions assume that you are familiar with installing developer software and working in a command-line environment. 
+  The instructions assume that you are familiar with installing software packages and working in a command-line environment. 
 - Python scripts for running the semantic similarity analysis
 
 ## Project Overview
@@ -10,10 +10,10 @@ This repository hosts the files used in a project comparing AI tools used for ac
 BERT (Bidirectional Encoder Representations from Transformers) is a type of Large Language Model (LLM). BERT excels at National Language Processing (NLP) tasks such as sentiment analysis, question answering, semantic similarity.
 
 ## System Requirements
-Pytorch is an open source deep learning library. One of its capabilities is enabling LLMs, such as BERT, to be run on a local computer. Before proceeding with this project, review the specified hardware and software requirements to see if your computer is able to run Pytorch.
+Pytorch is an open source deep learning framework. One of its capabilities is enabling LLMs, such as BERT, to be run on a local computer. You can install Pytorch as well as a multitude of supported libraries at no cost. Before proceeding further, review the specified hardware and software requirements to see if your computer is able to run Pytorch.
 
 Recommended hardware requirements:
-- Computer with Nvidia GPU that supports CUDA or AMD GPU (optional if you will not be using heavy computing)
+- Computer with Nvidia GPU that supports CUDA or AMD GPU (optional if you will not be doing heavy computing)
 - Intel Core i5 and higher or AMD Ryzen 7 and higher
 - 8 GB RAM
 - 256 GB storage
@@ -26,9 +26,12 @@ For a list of supported operating systems, see the Pytorch website (https://pyto
 ## Part 1: Set up and run BERT
 
 To set up and run BERT, perform the following tasks in order:
-1. Install Python</li>
-2. Set up a Python virtual environment
-3. 
+1. Install Python.
+2. Set up a Python virtual environment.
+3. Install Pytorch.
+4. Install Hugging Face Transformers and dependencies.
+5. Run a BERT smoke test.
+6. Save BERT locally for offline use.
 
 ### Install Python
 
@@ -45,26 +48,62 @@ To set up a Python virtual environment:
   
 ### Install Pytorch
 
-The package manager: pip is used to install the PyTorch binaries. The command to install Pytorch in the virtual environment differs based on the following factors:
+The package manager pip is used to install the PyTorch binaries. The command to install Pytorch in the virtual environment changeds based on the following factors:
 - OS
 - computing using a GPU or CPU
 - GPU model (if applicable).
 
-Use one of the following methods to find the command syntax:
+Use one of the following methods to find the correct command:
 - If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on https://pytorch.org/get-started/locally/ and the command will be generated for you.
 - If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at https://pytorch.org/get-started/previous-versions/.
 
-*Important!* Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install one of the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
+*Important!* Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
 
-This project ran on a computer that has the Nivdieo Quadro T2000. After much trial and error, the final working configuration was:
+This project ran on a computer that has the Nivdiao Quadro T2000 GPU. After much trial and error, the final working configuration was:
 Python version: 3.11.9
 Pytorch version: 2.7.1
-CUDA wheel 11.8
+CUDA wheel: 11.8
 
-Install Hugging Face Transformers and dependencies
-In your activated virtual environment, run pip install transformers
+### Install Hugging Face Transformers and dependencies
 
-Cache the model locally for offline use
+The Hugging Space Transformers library provides pre-trained LLMS that you can load in Pytorch. To install the library, in your activated virtual environment, run `pip install transformers`.
+
+### Run a BERT smoke test.
+
+To run a BERT smoke test:
+1. Create a file test_bert.py containing the following code in your project folder:
+```
+python
+from transformers import BertTokenizer, BertModel
+import torch
+
+model_name = "bert-base-uncased"
+tokenizer = BertTokenizer.from_pretrained(model_name)
+model = BertModel.from_pretrained(model_name)
+
+text = "BERT is running locally on my machine."
+inputs = tokenizer(text, return_tensors="pt")
+with torch.no_grad():
+    outputs = model(**inputs)
+
+print(outputs.last_hidden_state.shape)
+```
+2. In your activated virtual environment, run `python test_bert.py`.
+
+### Save BERT locally for offline use
+To save BERT locally for offline use:
+1. In your activated virtual environment, run 
+```
+save_dir = "./models/bert-base-uncased"
+model.save_pretrained(save_dir)
+tokenizer.save_pretrained(save_dir)
+```
+```
+from transformers import BertTokenizer, BertModel
+model_path = "./models/bert-base-uncased"
+tokenizer = BertTokenizer.from_pretrained(model_path, local_files_only=True)
+model = BertModel.from_pretrained(model_path, local_files_only=True)
+```
 
 In Python, after loading the model and tokenizer once, run:
 
