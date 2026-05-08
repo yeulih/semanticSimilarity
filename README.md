@@ -77,9 +77,9 @@ The following is a sample command to install Pytorch: `pip install torch torchvi
 >Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
 
 This project ran on a computer that has the Nivdiao Quadro T2000 GPU. After much trial and error, the final working configuration was:
-Python version: 3.11.9
-Pytorch version: 2.7.1
-CUDA wheel: 11.8
+- Python version: 3.11.9
+- Pytorch version: 2.7.1
+- CUDA wheel: 11.8
 
 ### Install Hugging Face Transformers
 
