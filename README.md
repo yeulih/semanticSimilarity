@@ -64,6 +64,7 @@ The package manager pip is used to install the PyTorch binaries. The command to 
 
 Use one of the following methods to find the correct command:
 - If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on (https://pytorch.org/get-started/locally/) and the command will be generated for you.
+  <[!TIP} You can check your Nvidia driver version and CUDA version by runinng `nivida-smi` in a command-line.
 - If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at (https://pytorch.org/get-started/previous-versions/).
 
 The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
