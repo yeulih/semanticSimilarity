@@ -62,16 +62,16 @@ The package manager pip is used to install the PyTorch binaries. The command to 
 - OS
 - computing using a GPU or CPU
 - GPU model (if applicable).
+- GPU driver installed
 
 Use one of the following methods to find the correct command:
 - If your GPU supports the latest CUDA SDKs and you want to install the latest stable Pytorch version, select your configuration using the interactive chart on (https://pytorch.org/get-started/locally/) and the command will be generated for you.
-
-    > [!TIP]
-    > You can check your Nvidia driver version and CUDA version by running `nvida-smi` in a command-line.
-    
 - If your GPU supports earlier CUDA SDKs or you want to install an earlier Pytorch version, find the relevant command at (https://pytorch.org/get-started/previous-versions/).
 
 The following is a sample command to install Pytorch: `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118`
+
+> [!TIP]
+> You can check your Nvidia driver version and CUDA version by running `nvida-smi` in a command-line.
 
 >[!IMPORTANT]
 >Even if your GPU supports the latest CUDA SDKs, compatability issues still might occur when attemping to install the latest Pytorch CUDA wheels. You can use online LLMs such as ChatGPT to help you troubleshoot which CUDA wheel and Pytorch version to install, or you can choose to only use the CPU to compute and skip installing the CUDA wheel.
@@ -111,8 +111,6 @@ Hugging Face Transformers automatically caches model weights, configurations, an
 
 To save BERT locally for offline use:
 1. After loading the model and tokenizer once, in your activated virtual environment, run `python` to invoke the Python interpretor as an interactive shell. This enables you to Python code line-by-line and see the results immediately.
-   >[!TIP]
-   Exit the interactive shell at any time by running `exit`.
 2. Run the following commands:
 ```
 save_dir = "./<model_directory>"
@@ -132,6 +130,8 @@ model_path = "./models/bert-base-uncased"
 tokenizer = BertTokenizer.from_pretrained(model_path, local_files_only=True)
 model = BertModel.from_pretrained(model_path, local_files_only=True)
 ```
+>[!TIP]
+>Exit the interactive shell at any time by running `exit`.
 
 ## Part 2: Perform Semantic Similarity Analysis
 
