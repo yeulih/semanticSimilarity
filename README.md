@@ -141,7 +141,7 @@ Once you have BERT set up and running, you can use BERT for inference tasks. Two
  - `compare_pdfs.py`: This Python script extracts text from two PDF files, chunks it, generates embeddings, builds a document‑level embedding for each document, and computes similarity between the 2 files.
  - `compare_jsons.py`: This sample Python script extracts and processes text from two JSON files, generates embeddings for each entry, and computes an unordered set-level semantic similarity between the two files.
 
-These scripts do not use the `bert-base-uncased` model in the Transformers library, as BERT models are not specifically trained for semantic similarity. Instead, the scripts use a SBERT model `all-mpnet-base-v2` in the SentenceTransformers library. 
+These scripts do not use the `bert-base-uncased` model in the Transformers library, as BERT models are not specifically trained for semantic similarity. Instead, the scripts use a SBERT model `all-mpnet-base-v2` in the Sentence Transformers library. 
 
 To set up and run SBERT, perform the following tasks in order:
 1. [Install Hugging Face Sentence Transformers](#insall-hugging-face-sentence-transformers).
